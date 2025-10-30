@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Онлайн-команда — набор помощников аналитика</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg: #f7f8fb;
+      --primary: #2f49e8;
+      --ink: #0f172a;
+    }
+    .bg-collage{
+      position: relative;
+      isolation: isolate;
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+                  url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    *{ -webkit-tap-highlight-color: transparent; }
+    .shadow-soft{ box-shadow: 0 12px 34px rgba(2,6,23,.2); }
+
+    /* Контур и подсветка текста */
+    .outlined-text{
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);
+    }
+    .outlined-subtext{
+      color: #fefefe;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Яркие кнопки */
+    .btn-primary{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:1rem 1.6rem; border-radius:1rem; font-weight:900; font-size:1.125rem;
+      color:#fff; background: linear-gradient(180deg, #5a73ff, #2f49e8);
+      box-shadow: 0 0 20px rgba(47,73,232,.6), 0 8px 25px rgba(0,0,0,.4);
+      border:2px solid rgba(255,255,255,.9);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn-primary:hover{ transform: scale(1.05); filter: brightness(1.15); }
+
+    .btn-ghost{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:1rem 1.6rem; border-radius:1rem; font-weight:900; font-size:1.125rem;
+      color:#2f49e8; background:#fff;
+      border:2px solid #2f49e8;
+      box-shadow: 0 0 15px rgba(255,255,255,.8);
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .btn-ghost:hover{ transform: scale(1.05); background:#2f49e8; color:#fff; }
+    /* Анимации c уважением к prefers-reduced-motion */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal{opacity:0; transform: translateY(12px);}
+      .reveal.in{opacity:1; transform:none;}
+      .reveal.fade-up{animation: fadeUp .6s ease both;}
+      .reveal.fade-delay{animation-delay:.15s;}
+      .reveal.fade-delay-2{animation-delay:.3s;}
+      @keyframes fadeUp{from{opacity:0; transform: translateY(14px);} to{opacity:1; transform:none;}}
+      .btn-primary.animate-pulse-cta{animation: pulseCta 2.2s ease-in-out .6s infinite alternate;}
+      @keyframes pulseCta{from{box-shadow: 0 0 14px rgba(47,73,232,.45), 0 10px 24px rgba(0,0,0,.35);} to{box-shadow: 0 0 28px rgba(47,73,232,.7), 0 12px 30px rgba(0,0,0,.45); transform: translateY(-1px);} }
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <section class="bg-collage min-h-[100dvh] flex items-center">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold outlined-text leading-tight reveal fade-up">Набираем сотрудников в онлайн-команду</h1>
+      <p class="mt-6 text-xl md:text-2xl font-extrabold outlined-subtext reveal fade-up fade-delay">Вакансия: помощник аналитика онлайн. Возраст от 18 лет.<br>Опыт не обязателен — предусмотрено оплачиваемое обучение.<br>Работа легальная. Выплаты — каждый день.</p>
+
+      <ul class="mt-6 space-y-2 text-lg outlined-subtext reveal fade-up fade-delay-2">
+        <li>• Гибкий график, работа с ноутбука или телефона</li>
+        <li>• Наставник помогает на старте</li>
+        <li>• Прозрачная и честная система выплат</li>
+      </ul>
+
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-5 reveal fade-up fade-delay-2">
+  <a href="#apply" class="btn-primary w-full sm:w-auto animate-pulse-cta">Подать заявку</a>
+  <a href="#about" class="btn-ghost w-full sm:w-auto">Подробнее</a>
+</div>
+    </div>
+  </section>
+
+  <!-- Липкий бар CTA для мобайла -->
+  <div class="fixed bottom-0 inset-x-0 sm:hidden z-50 p-3">
+    <div class="max-w-md mx-auto grid grid-cols-2 gap-3">
+      <a href="#apply" class="btn-primary animate-pulse-cta">Откликнуться</a>
+      <a href="#about" class="btn-ghost">Подробнее</a>
+    </div>
+  </div>
+
+  <!-- Секция О нас (коротко) -->
+  <section id="about" class="bg-white/90 py-10">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+        <div class="p-5 rounded-2xl bg-white shadow-soft border reveal fade-up"><p class="font-extrabold text-[var(--ink)]">Простой старт</p><p class="mt-1">Пошаговое обучение и понятные задачи.</p></div>
+        <div class="p-5 rounded-2xl bg-white shadow-soft border reveal fade-up fade-delay"><p class="font-extrabold text-[var(--ink)]">Поддержка</p><p class="mt-1">Наставник помогает на каждом шаге.</p></div>
+        <div class="p-5 rounded-2xl bg-white shadow-soft border reveal fade-up fade-delay-2"><p class="font-extrabold text-[var(--ink)]">Ежедневные выплаты</p><p class="mt-1">Оплата за выполненные задачи.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма отклика -->
+  <section id="apply" class="py-12 bg-white">
+    <div class="max-w-lg mx-auto px-4">
+      <div class="rounded-3xl bg-white shadow-soft border p-6">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-[var(--ink)] reveal fade-up">Отклик на вакансию</h2>
+        <form id="applyForm" class="mt-5 space-y-4" novalidate>
+          <div>
+            <label class="block text-sm font-bold">Имя и фамилия *</label>
+            <input required name="name" autocomplete="name" placeholder="Например, Анна Иванова" class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium" />
+          </div>
+          <div>
+            <label class="block text-sm font-bold">Страна проживания *</label>
+            <input required name="country" placeholder="Например, Казахстан / Германия" class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-bold">Возраст *</label>
+              <input required type="number" min="18" max="90" inputmode="numeric" pattern="[0-9]*" name="age" placeholder="18+" class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold">Мессенджер *</label>
+              <select name="messenger" required class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium">
+                <option value="">Выберите</option>
+                <option>Telegram</option>
+                <option>WhatsApp</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-bold">Контакт (ник/номер) *</label>
+            <input required name="contact" placeholder="@username или +7 999 000-00-00" class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium" />
+          </div>
+          <div>
+            <label class="block text-sm font-bold">Коротко о себе (необязательно)</label>
+            <textarea name="about" rows="3" placeholder="Опыт, ожидания по доходу, часы доступности…" class="mt-1 w-full rounded-2xl border px-4 py-3 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary)] font-medium"></textarea>
+          </div>
+          <div class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+            <input id="agree" type="checkbox" required class="mt-1 w-5 h-5 rounded-md border" />
+            <label for="agree">Соглашаюсь на обработку данных и получение сообщения в выбранный мессенджер.</label>
+          </div>
+          <button class="w-full btn-primary">Отправить заявку</button>
+          <p id="state" class="hidden text-center text-sm"></p>
+          <input type="hidden" name="source" id="source" />
+          <input type="hidden" name="userAgent" id="ua" />
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-xs text-slate-600 font-semibold">© <span id="year"></span> Онлайн‑команда. Все права защищены.</footer>
+
+  <script>
+    // Intersection Observer для активации анимаций
+    const els = document.querySelectorAll('.reveal');
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+    }, {threshold: .12}) : null;
+    els.forEach(el=>{ if(io) io.observe(el); else el.classList.add('in'); });
+
+    // Служебные поля и отправка формы (Apps Script)
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const src = document.getElementById('source'); if (src) src.value = location.href;
+    const ua = document.getElementById('ua'); if (ua) ua.value = navigator.userAgent;
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzf87xkO3gRuj91GDQEXHK4X_7POVeyXHdf7g-2bonGl40grTOGwPDNtDMX_nlOqQu6/exec';
+    const form = document.getElementById('applyForm');
+    const state = document.getElementById('state');
+    if(form){
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const age = Number(new FormData(form).get('age'));
+        if (isNaN(age) || age < 18) {
+          state.className = 'mt-3 text-center text-sm text-red-600 font-bold';
+          state.textContent = 'Возраст должен быть 18+.';
+          state.classList.remove('hidden');
+          return;
+        }
+        const payload = Object.fromEntries(new FormData(form).entries());
+        state.className = 'mt-3 text-center text-sm text-slate-700 font-medium';
+        state.textContent = 'Отправляем…';
+        state.classList.remove('hidden');
+        try {
+          await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+          state.className = 'mt-3 text-center text-sm text-emerald-600 font-bold';
+          state.textContent = 'Спасибо! Заявка отправлена. Мы свяжемся в мессенджере.';
+          form.reset();
+        } catch (err) {
+          state.className = 'mt-3 text-center text-sm text-red-600 font-bold';
+          state.textContent = 'Не удалось отправить. Попробуйте ещё раз.';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
